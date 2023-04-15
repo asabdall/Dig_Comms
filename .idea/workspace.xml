@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d358eb0-54a4-461b-8aa2-21b51fd824e2" name="Changes" comment="h">
-      <change afterPath="$PROJECT_DIR$/BPSK.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Lempel-Ziv.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Dig_Comm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4d358eb0-54a4-461b-8aa2-21b51fd824e2" name="Changes" comment="Working on  BPSK Modulator" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,7 +222,7 @@
       <workItem from="1680745147214" duration="2145000" />
       <workItem from="1680925106030" duration="71000" />
       <workItem from="1681415378541" duration="553000" />
-      <workItem from="1681536806597" duration="635000" />
+      <workItem from="1681536806597" duration="888000" />
     </task>
     <task id="LOCAL-00001" summary="h">
       <created>1680650030763</created>
@@ -265,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681415900896</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Working on  BPSK Modulator">
+      <created>1681537700010</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681537700010</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +275,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="j" />
     <MESSAGE value="h" />
-    <option name="LAST_COMMIT_MESSAGE" value="h" />
+    <MESSAGE value="Working on  BPSK Modulator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on  BPSK Modulator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -289,11 +291,17 @@
           <line>16</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/BPSK.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Lempel_Ziv$Random_Bit_Generator.coverage" NAME="Random_Bit_Generator Coverage Results" MODIFIED="1681415871333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Lempel_Ziv$Lempel_Ziv_Main.coverage" NAME="Lempel-Ziv_Main Coverage Results" MODIFIED="1681415766535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Lempel_Ziv$Lempel_Ziv_Main.coverage" NAME="Lempel-Ziv_Main Coverage Results" MODIFIED="1681537561474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Lempel_Ziv$BPSK.coverage" NAME="BPSK Coverage Results" MODIFIED="1681537575336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
