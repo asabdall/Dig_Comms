@@ -12,6 +12,3 @@ def random_bit_generator(message_size):
         bitstream += added_bit
     return bitstream
 
-
-random_bitstream = random_bit_generator(100)
-print('hi')
