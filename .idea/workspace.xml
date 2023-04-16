@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d358eb0-54a4-461b-8aa2-21b51fd824e2" name="Changes" comment="Working on  BPSK Modulator">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BPSK.py" beforeDir="false" afterPath="$PROJECT_DIR$/BPSK.py" afterDir="false" />
-    </list>
+    <list default="true" id="4d358eb0-54a4-461b-8aa2-21b51fd824e2" name="Changes" comment="Working on  BPSK Modulator" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +96,7 @@
       <workItem from="1680925106030" duration="71000" />
       <workItem from="1681415378541" duration="553000" />
       <workItem from="1681536806597" duration="888000" />
-      <workItem from="1681613293521" duration="8210000" />
+      <workItem from="1681613293521" duration="8558000" />
     </task>
     <task id="LOCAL-00001" summary="h">
       <created>1680650030763</created>
@@ -143,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681537700010</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Working on  BPSK Modulator">
+      <created>1681631955155</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681631955155</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,13 +174,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/BPSK.py</url>
-          <line>56</line>
+          <line>38</line>
           <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/BPSK.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
