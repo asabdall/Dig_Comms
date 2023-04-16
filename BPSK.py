@@ -2,9 +2,11 @@ import numpy as np
 import math
 
 
-def binary_phase_shift_keying_modulator(bitstream, bit_rate, carrier_frequency):
+def binary_phase_shift_keying_modulator(bitstream, bit_rate):
     total_time = len(bitstream) / bit_rate
-    seconds = np.linspace(0, total_time, len(bitstream) * 1000)
+    sampling_frequency = (len(bitstream) * 100) / total_time
+    carrier_frequency = sampling_frequency/20
+    seconds = np.linspace(0, total_time, len(bitstream) * 100)
     sine_wave = np.sin(2 * math.pi * carrier_frequency * seconds)
     cosine_wave = np.cos(2 * math.pi * carrier_frequency * seconds)
     modulated_wave = [0] * len(seconds)
