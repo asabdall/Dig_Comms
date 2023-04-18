@@ -4,14 +4,12 @@ import BPSK
 import AWGN_Channel as AWGN
 
 
-def simulate_communication_system(message_size, bits_per_second, carrier_frequency, signal_to_noise_ratio_db):
+def simulate_communication_system(message_size, symbol_size, bitrate, signal_to_noise_ratio_db):
     # Generate a random message of given size
-    random_message = Rand.random_bit_generator(message_size)
+    random_message = Rand.random_bit_generator(message_size, symbol_size)
 
     # Modulate the message using binary phase shift keying (BPSK) modulation
-    modulated_message, base_func_1, base_func_0 = BPSK.binary_phase_shift_keying_modulator(random_message,
-                                                                                           bits_per_second
-                                                                                           , carrier_frequency)
+    modulated_message, base_func_1, base_func_0 = BPSK.binary_phase_shift_keying_modulator(random_message, bitrate)
 
     # Determine the window size for demodulation
     window_size = int(modulated_message.size / len(random_message))
@@ -30,4 +28,4 @@ def simulate_communication_system(message_size, bits_per_second, carrier_frequen
     print(f"Bit Error Rate: {errors / message_size}")
 
 
-simulate_communication_system(100, 100, 2000, -10)
+simulate_communication_system(10000, 1, 100, 2.5)
