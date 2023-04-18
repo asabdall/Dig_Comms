@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d358eb0-54a4-461b-8aa2-21b51fd824e2" name="Changes" comment="Commented and cleaned up code, as well as added AWGN Channel">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4d358eb0-54a4-461b-8aa2-21b51fd824e2" name="Changes" comment="Commented and cleaned up code, as well as added AWGN Channel" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,6 +100,7 @@
       <workItem from="1681667756393" duration="2531000" />
       <workItem from="1681684259992" duration="1767000" />
       <workItem from="1681752615741" duration="2205000" />
+      <workItem from="1681754859864" duration="66000" />
     </task>
     <task id="LOCAL-00001" summary="h">
       <created>1680650030763</created>
