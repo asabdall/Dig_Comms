@@ -9,7 +9,7 @@ def simulate_communication_system(message_size, symbol_size, bitrate, signal_to_
     random_message = Rand.random_bit_generator(message_size, symbol_size)
 
     # Modulate the message using binary phase shift keying (BPSK) modulation
-    modulated_message, base_func_1, base_func_0 = BPSK.binary_phase_shift_keying_modulator(random_message, bitrate)
+    modulated_message, base_func_1= BPSK.binary_phase_shift_keying_modulator(random_message, bitrate)
 
     # Determine the window size for demodulation
     window_size = int(modulated_message.size / len(random_message))
@@ -18,8 +18,7 @@ def simulate_communication_system(message_size, symbol_size, bitrate, signal_to_
     received_message = AWGN.additive_white_gaussian_noise_channel(modulated_message, signal_to_noise_ratio_db)
 
     # Demodulate the message using BPSK demodulation and the base functions
-    demodulated_message = BPSK.binary_phase_shift_keying_demodulator(received_message, base_func_1, base_func_0,
-                                                                     window_size)
+    demodulated_message = BPSK.binary_phase_shift_keying_demodulator(received_message, base_func_1,window_size)
 
     # Count the number of errors between the original and demodulated messages
     errors = sum(1 for a, b in zip(random_message, demodulated_message) if a != b)
@@ -28,4 +27,4 @@ def simulate_communication_system(message_size, symbol_size, bitrate, signal_to_
     print(f"Bit Error Rate: {errors / message_size}")
 
 
-simulate_communication_system(10000, 1, 100, 2.5)
+simulate_communication_system(message_size=10000, symbol_size=1, bitrate=1, signal_to_noise_ratio_db=0)

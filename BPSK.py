@@ -3,17 +3,19 @@ import math
 
 
 def binary_phase_shift_keying_modulator(bitstream, bit_rate):
+    signal_energy = 1
+    # Compute amplitude for sinusoidal signals
+    sinusoid_amplitude = np.sqrt(signal_energy * 2 * bit_rate)
     # Compute total time for the bitstream
     total_time = len(bitstream) / bit_rate
     # Compute sampling frequency
-    sampling_frequency = bit_rate*10
+    sampling_frequency = bit_rate * 10
     # Compute carrier frequency
-    carrier_frequency = sampling_frequency/20
+    carrier_frequency = sampling_frequency / 20
     # Generate time array with sufficient samples
-    seconds = np.linspace(0, total_time, int(sampling_frequency*total_time))
+    seconds = np.linspace(0, total_time, int(sampling_frequency * total_time))
     # Generate sine and cosine waves for the carrier frequency
-    sine_wave = np.sin(2 * math.pi * carrier_frequency * seconds)
-    cosine_wave = np.cos(2 * math.pi * carrier_frequency * seconds)
+    one_carrier = sinusoid_amplitude * np.sin(2 * math.pi * carrier_frequency * seconds)
     # Initialize modulated_wave with zeros
     modulated_wave = [0] * len(seconds)
     # Compute window size
@@ -21,19 +23,19 @@ def binary_phase_shift_keying_modulator(bitstream, bit_rate):
     # For each bit in the bitstream, modulate the wave
     for i in range(0, len(bitstream)):
         if "1" in bitstream[i]:
-            modulated_wave[i * window_size:(i + 1) * window_size] = sine_wave[i * window_size:(i + 1) * window_size]
+            modulated_wave[i * window_size:(i + 1) * window_size] = one_carrier[i * window_size:(i + 1) * window_size]
         else:
-            modulated_wave[i * window_size:(i + 1) * window_size] = cosine_wave[i * window_size:(i + 1) * window_size]
+            modulated_wave[i * window_size:(i + 1) * window_size] = -1*one_carrier[i * window_size:(i + 1) * window_size]
     # Convert modulated_wave to a numpy array
     modulated_wave = np.array(modulated_wave)
     # Return modulated wave, and the two carrier waves
-    return modulated_wave, sine_wave, cosine_wave
+    return modulated_wave, one_carrier
 
 
-def binary_phase_shift_keying_demodulator(received_message, base_one, base_zero, window_size):
+def binary_phase_shift_keying_demodulator(received_message, base_one,window_size):
     # Demodulate the signal by multiplying it with the two carrier waves
     demodulated_signal_base_one = np.multiply(received_message, base_one)
-    demodulated_signal_base_zero = np.multiply(received_message, base_zero)
+    demodulated_signal_base_zero = np.multiply(received_message, -1*base_one)
     # Compute number of bits in the received message
     bit_count = int(demodulated_signal_base_one.size / window_size)
     # Initialize received_bits
