@@ -27,4 +27,4 @@ def simulate_communication_system(message_size, symbol_size, bitrate, signal_to_
     print(f"Bit Error Rate: {errors / message_size}")
 
 
-simulate_communication_system(message_size=10000, symbol_size=1, bitrate=1, signal_to_noise_ratio_db=-10)
+simulate_communication_system(message_size=100000, symbol_size=1, bitrate=1, signal_to_noise_ratio_db=0)

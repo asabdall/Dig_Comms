@@ -3,39 +3,59 @@ import math
 
 
 def binary_phase_shift_keying_modulator(bitstream, bit_rate):
+    # Calculate the energy of the signal
     signal_energy = 1
-    # Compute amplitude for sinusoidal signals
+
+    # Calculate the amplitude of the sinusoid
     sinusoid_amplitude = np.sqrt(signal_energy * 2 * bit_rate)
-    # Compute total time for the bitstream
+
+    # Calculate the amplitude of the basis function
+    basis_function_amplitude = np.sqrt(2 * bit_rate)
+
+    # Calculate the total time of the signal
     total_time = len(bitstream) / bit_rate
-    # Compute sampling frequency
+
+    # Calculate the sampling frequency of the signal
     sampling_frequency = bit_rate * 10
-    # Compute carrier frequency
+
+    # Calculate the carrier frequency of the signal
     carrier_frequency = sampling_frequency / 20
-    # Generate time array with sufficient samples
+
+    # Generate a time axis for the signal
     seconds = np.linspace(0, total_time, int(sampling_frequency * total_time))
-    # Generate sine and cosine waves for the carrier frequency
-    one_carrier = sinusoid_amplitude * np.sin(2 * math.pi * carrier_frequency * seconds)
-    # Initialize modulated_wave with zeros
-    modulated_wave = [0] * len(seconds)
-    # Compute window size
+
+    # Generate a sinusoidal wave for a bit value of 1
+    one_symbol = sinusoid_amplitude * np.sin(2 * math.pi * carrier_frequency * seconds)
+
+    # Generate a sinusoidal wave for a bit value of 0
+    zero_symbol = -1 * sinusoid_amplitude * np.sin(2 * math.pi * carrier_frequency * seconds)
+
+    # Generate a basis function wave
+    basis_function = basis_function_amplitude * np.sin(2 * math.pi * carrier_frequency * seconds)
+
+    # Create an empty modulated wave array
+    modulated_wave = np.zeros(len(seconds))
+
+    # Calculate the window size for each bit
     window_size = int(len(seconds) / len(bitstream))
-    # For each bit in the bitstream, modulate the wave
-    for i in range(0, len(bitstream)):
-        if "1" in bitstream[i]:
-            modulated_wave[i * window_size:(i + 1) * window_size] = one_carrier[i * window_size:(i + 1) * window_size]
+
+    # Modulate each bit
+    for i, bit in enumerate(bitstream):
+        # If the bit is 1, add the one symbol wave to the modulated wave
+        if bit == '1':
+            modulated_wave[i * window_size:(i + 1) * window_size] = one_symbol[i * window_size:(i + 1) * window_size]
+        # If the bit is 0, add the zero symbol wave to the modulated wave
         else:
-            modulated_wave[i * window_size:(i + 1) * window_size] = -1*one_carrier[i * window_size:(i + 1) * window_size]
-    # Convert modulated_wave to a numpy array
-    modulated_wave = np.array(modulated_wave)
-    # Return modulated wave, and the two carrier waves
-    return modulated_wave, one_carrier
+            modulated_wave[i * window_size:(i + 1) * window_size] = zero_symbol[i * window_size:(i + 1) * window_size]
+
+    # Return the modulated wave and the basis function
+    return modulated_wave, basis_function
 
 
-def binary_phase_shift_keying_demodulator(received_message, base_one,window_size):
+def binary_phase_shift_keying_demodulator(received_message, base_one, window_size):
     # Demodulate the signal by multiplying it with the two carrier waves
     demodulated_signal_base_one = np.multiply(received_message, base_one)
-    demodulated_signal_base_zero = np.multiply(received_message, -1*base_one)
+    demodulated_signal_base_zero = np.multiply(received_message, -1 * base_one)
     # Compute number of bits in the received message
     bit_count = int(demodulated_signal_base_one.size / window_size)
     # Initialize received_bits
