@@ -19,7 +19,7 @@ def binary_phase_shift_keying_modulator(bitstream, bit_rate):
     sampling_frequency = bit_rate * 10
 
     # Calculate the carrier frequency of the signal
-    carrier_frequency = sampling_frequency / 20
+    carrier_frequency = 10
 
     # Generate a time axis for the signal
     seconds = np.linspace(0, total_time, int(sampling_frequency * total_time))
